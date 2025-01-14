@@ -1,5 +1,6 @@
 import React from "react";
 import CheckoutPage from "./_components/checkout-page";
+import CheckoutPageType2 from './_components/checkout-page2';
 import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import { getCheckoutBySlug } from "@/app/_utils/api";
@@ -23,7 +24,11 @@ const Page = () => {
 
   return (
     <div className={montserrat.className}>
-      <CheckoutPage info={checkoutInfo} />
+      {
+        checkoutInfo.template === "1" ?
+          <CheckoutPage info={checkoutInfo} />
+        : <CheckoutPageType2 info={checkoutInfo} />
+      }
     </div>
   );
 };
