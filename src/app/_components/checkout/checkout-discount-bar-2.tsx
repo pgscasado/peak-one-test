@@ -106,20 +106,20 @@ const DiscountBar = ({
 
   return (
     <div className="flex w-full items-center justify-center bg-[#fff1af] p-0">
-      <div className='relative text-center w-1/4'>
+      <div className='relative text-center flex-initial'>
         <Image
           src={SaveSeal}
           width={70}
           height={70}
           alt={currentDiscount.alt}
-          className="object-scale-down w-1/2 max-w-1/2 float-right"
+          className="object-scale-down float-right"
         />
-        <p className="absolute text-[0.6rem] sm:text-[1rem] w-1/2 font-bold text-white float-right right-0 top-1/2 translate-y-[-50%] leading-[0.7rem]">
+        <p className="absolute text-[0.6rem] sm:text-[1rem] w-full font-bold text-white float-right right-0 top-1/2 translate-y-[-50%] leading-[0.7rem] sm:leading-[0.9rem]">
           {currentDiscount.percent}<br/>
           OFF
         </p>
       </div>
-      <div className="flex flex-col flex1 pl-4">
+      <div className="flex flex-col w-auto pl-4">
         <p className="text-[17px] sm:text-[16px] font-bold">
           <span className='text-red-500'>HURRY!</span> LIMITED TO 100 SPOTS ONLY!
         </p>
