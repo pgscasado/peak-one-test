@@ -105,7 +105,7 @@ const DiscountBar = ({
     Number(currentDiscount.newPrice) - (couponActive ? 5 : 0);
 
   return (
-    <div className="flex w-full items-center justify-center bg-[#fff1af] p-0">
+    <div className="flex w-full items-center justify-center bg-[#fff1af] p-0 mx-2">
       <div className='relative text-center flex-initial'>
         <Image
           src={SaveSeal}
