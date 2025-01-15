@@ -21,6 +21,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { createJimmyKey } from "@/app/_utils/jimmyKeyUtils";
 import { emergencyStartSession } from "@/app/_utils/emergencySessionStart";
 import { useTracking } from "@/app/_context/TrackingContext";
+import Image from 'next/image';
 
 type Props = {
   info: CheckoutPageType;
@@ -434,11 +435,11 @@ const CheckoutForm = ({ info }: Props) => {
         setCustomerInfo={setCustomerInfo}
         product={product}
       />
-      <div className="flex  w-full relative flex-col items-center bg-white">
+      <div className="flex w-full relative flex-col items-center bg-white">
         <div id="payment-container" />
         <div className="flex w-full max-w-[1100px] sm:px-4 pb-12 flex-wrap">
           <div className="flex flex-col w-full  lg:w-1/2 px-2 lg:py-8 pt-4 sm:pt-8 pb-4">
-            <div className="bg-[#fff1af] p-4 rounded-lg border-[1px] border-[#ddd] flex">
+            <div className="bg-[#fff1af] py-4 flex">
               <DiscountBar
                 product={product.product}
                 info={info}
@@ -446,7 +447,7 @@ const CheckoutForm = ({ info }: Props) => {
                 country={country}
               />
             </div>
-            <div className="bg-white p-4 rounded-lg mt-4">
+            <div className="bg-white py-4 rounded-lg mt-4">
               <QuantitySelector
                 product={product}
                 info={info}
@@ -455,10 +456,29 @@ const CheckoutForm = ({ info }: Props) => {
                 country={country}
               />
             </div>
-            <div className="bg-white p-4 rounded-lg mt-4">
+            <div className="bg-white rounded-lg mt-4">
+              <div className="hidden lg:flex w-full mb-4 border-[1px] border-[#d7d7d7] p-5 justify-center relative">
+                <p className='absolute -top-2 bg-white px-2 text-[12px]'>Express Checkout</p>
+                <div
+                  className="flex w-[278px] border-[1px] border-[#ffc439] bg-[#ffc439] rounded-md  px-4 py-2 h-[44px] cursor-pointer overflow-hidden space-x-2 hover:bg-[#ffde3a] hover:border-[#ffde3a]"
+                  onClick={() => {
+                    if (loading === "") {
+                      firePaypal();
+                    }
+                  }}
+                >
+                  <Image
+                    src="https://imagedelivery.net/3TTaU3w9z1kOYYtN3czCnw/1397951e-7288-4b95-8ef1-b1f423b56c00/public"
+                    width={600}
+                    height={100}
+                    alt="Paypal"
+                    className="cursor-pointer hover:brightness-110 object-scale-down "
+                  />
+                </div>
+              </div>
               <CustomerInfo formik={formik} />
             </div>
-            <div className="bg-white p-4 rounded-lg">
+            <div className="bg-white py-4 rounded-lg">
               <PaymentOptions
                 info={info}
                 product={product}

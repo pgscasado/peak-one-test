@@ -196,25 +196,6 @@ const PaymentOptions = ({
         </div>
       )}
       <form onSubmit={formik.handleSubmit}>
-        <div className="hidden lg:flex w-full mb-4 border-[1px] border-[#d7d7d7] p-5 justify-center relative">
-          <p className='absolute -top-2 bg-white px-2 text-[12px]'>Express Checkout</p>
-          <div
-            className="flex w-[278px] border-[1px] border-[#ffc439] bg-[#ffc439] rounded-md  px-4 py-2 h-[44px] cursor-pointer overflow-hidden space-x-2 hover:bg-[#ffde3a] hover:border-[#ffde3a]"
-            onClick={() => {
-              if (loading === "") {
-                firePaypal();
-              }
-            }}
-          >
-            <Image
-              src="https://imagedelivery.net/3TTaU3w9z1kOYYtN3czCnw/1397951e-7288-4b95-8ef1-b1f423b56c00/public"
-              width={600}
-              height={100}
-              alt="Paypal"
-              className="cursor-pointer hover:brightness-110 object-scale-down "
-            />
-          </div>
-        </div>
         <div className="flex flex-row w-full align-middle mb-4">
           <GlobeAmericasIcon className="h-[32px] w-[32px] mr-2 my-auto" />
           <div className="">

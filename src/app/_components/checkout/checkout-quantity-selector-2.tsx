@@ -7,6 +7,7 @@ import { Squares2X2Icon, StarIcon } from '@heroicons/react/24/solid';
 import { delay } from "@/app/_utils/delay";
 import SaveSeal from "@/../public/images/save-seal.png";
 import { PriceDisplaySimple } from "./checkout-price-display";
+import HighDemandSection from './high-demand-section';
 
 type QuantityProps = {
   product: ProductInfoType;
@@ -116,9 +117,10 @@ const QuantitySelector = ({
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-col sm:space-y-10">
+      <div className="flex w-full flex-col space-y-8"> 
+        <HighDemandSection />
         <div
-          className={`relative flex w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all ${
+          className={`relative h-36 py-4 flex flex-row w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all ${
             product.product === 0 ? "border-blue-500 bg-amber-100" : "bg-white"
           }`}
           onClick={() => {
@@ -132,17 +134,19 @@ const QuantitySelector = ({
             );
           }}
         >
-          <div className="absolute top-[10px] left-[15px] font-bold text-[14px] align-bottom my-auto">
-            <input type='checkbox' checked={product.product === 0} className='mr-2 align-middle' />
-            Buy 1x
-          </div>
-          <div className="flex w-1/3 sm:w-1/2 justify-center items-center ml-6">
-            <Image
-              src={info.product.image1}
-              width={120}
-              height={120}
-              alt="Quantity 1"
-            />
+          <div className='flex flex-col w-1/2'>
+            <div className="-mt-2 mb-2 ml-3 font-bold text-[14px] align-bottom">
+              <input type='checkbox' checked={product.product === 0} className='mr-2 align-middle' />
+              Buy 1x
+            </div>
+            <div className="flex w-fit h-full justify-center sm:justify-start items-center ml-6 relative">
+              <Image
+                src={info.product.image2}
+                width={120}
+                height={120}
+                alt="Quantity 1"
+              />
+            </div>
           </div>
           <div className="flex w-2/3 sm:w-1/2 flex-col justify-start items-center text-[#282828] text-center">
             <div className="flex flex-col justify-center text-right mr-10 w-full my-auto">
@@ -173,7 +177,7 @@ const QuantitySelector = ({
               <StarIcon className="h-[16px] w-[16px] mr-1 text-yellow-300" /> BESTSELLER
             </div>
           <div
-            className={`flex w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all relative ${
+            className={`flex h-36 py-4 flex-row w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all relative ${
               product.product === 1 ? "border-blue-500 bg-amber-100" : "bg-white"
             }`}
             onClick={() => {
@@ -187,29 +191,32 @@ const QuantitySelector = ({
               );
             }}
           >
-            <div className="absolute top-[10px] left-[15px] font-bold text-[14px] align-bottom my-auto">
-              <input type='checkbox' checked={product.product === 1} className='mr-2 align-middle' />
-              Buy 2x
-            </div>
-            <div className="flex w-1/3 sm:w-1/2 justify-center items-center ml-6 relative">
-            <div className='absolute right-1/4 top-1 text-center'>
-              <Image
-                src={SaveSeal}
-                width={30}
-                height={30}
-                alt='56% off'
-                className="object-scale-down w-1/3 max-w-[70px] sm:w-auto"
-              />
-              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[0.6rem] font-bold text-white">
-                56%
-              </p>
-            </div>
-              <Image
-                src={info.product.image2}
-                width={120}
-                height={120}
-                alt="Quantity 1"
-              />
+            <div className='flex flex-col w-1/2'>
+              <div className="-mt-2 mb-2 ml-3 font-bold text-[14px] align-bottom">
+                <input type='checkbox' checked={product.product === 1} className='mr-2 align-middle' />
+                Buy 2x
+              </div>
+              <div className="flex w-fit h-full justify-center sm:justify-start items-center ml-6 relative">
+                <div className='absolute top-0 text-center w-32'>
+                  <Image
+                    src={SaveSeal}
+                    width={60}
+                    height={60}
+                    alt='56% off'
+                    className="object-scale-down w-1/3 max-w-32 float-right"
+                  />
+                  <p className="absolute text-[0.7rem] w-1/3 font-bold text-white float-right right-0 top-1/2 translate-y-[-50%] leading-[0.7rem]">
+                    56%<br/>
+                    OFF
+                  </p>
+                </div>
+                <Image
+                  src={info.product.image2}
+                  width={120}
+                  height={120}
+                  alt="Quantity 1"
+                />
+              </div>
             </div>
             <div className="flex w-2/3 sm:w-1/2 flex-col justify-start items-center text-[#282828] text-center">
               <div className="flex flex-col justify-center text-right mr-10 w-full my-auto">
@@ -237,9 +244,9 @@ const QuantitySelector = ({
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-col space-y-10 mt-10">
+      <div className="flex w-full flex-col space-y-8 mt-8">
         <div
-          className={`relative flex w-full border-[1px] border-[#333] rounded-md cursor-pointer hover:shadow-sm  hover:shadow-blue-500 transition-all ${
+          className={`relative h-36 py-4 flex w-full border-[1px] border-[#333] rounded-md cursor-pointer hover:shadow-sm  hover:shadow-blue-500 transition-all ${
             product.product === 2 ? "border-blue-500 bg-amber-100" : "bg-white"
           }`}
           onClick={() =>
@@ -253,29 +260,32 @@ const QuantitySelector = ({
             )
           }
         >
-          <div className="absolute top-[10px] left-[15px] font-bold text-[14px] align-bottom my-auto">
-            <input type='checkbox' checked={product.product === 2} className='mr-2 align-middle' />
-            Buy 3x
-          </div>
-          <div className="flex w-1/3 sm:w-1/2 justify-center items-center ml-6 relative">
-          <div className='absolute right-1/4 top-1 text-center'>
-              <Image
-                src={SaveSeal}
-                width={30}
-                height={30}
-                alt='58% off'
-                className="object-scale-down w-1/3 max-w-[70px] sm:w-auto"
-              />
-              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[0.6rem] font-bold text-white">
-                58%
-              </p>
+          <div className='flex flex-col w-1/2'>
+            <div className="-mt-2 mb-2 ml-3 font-bold text-[14px] align-bottom">
+              <input type='checkbox' checked={product.product === 2} className='mr-2 align-middle' />
+              Buy 3x
             </div>
-            <Image
-              src={info.product.image3}
-              width={120}
-              height={120}
-              alt="Quantity 1"
-            />
+            <div className="flex w-fit h-full justify-center sm:justify-start items-center ml-6 relative">
+              <div className='absolute top-0 text-center w-32'>
+                <Image
+                  src={SaveSeal}
+                  width={60}
+                  height={60}
+                  alt='58% off'
+                  className="object-scale-down w-1/3 max-w-32 float-right"
+                />
+                <p className="absolute text-[0.7rem] w-1/3 font-bold text-white float-right right-0 top-1/2 translate-y-[-50%] leading-[0.7rem]">
+                  58%<br/>
+                  OFF
+                </p>
+              </div>
+              <Image
+                src={info.product.image3}
+                width={120}
+                height={120}
+                alt="Quantity 1"
+              />
+            </div>
           </div>
           <div className="flex w-2/3 sm:w-1/2 flex-col justify-start items-center text-[#282828] text-center">
           <div className="flex flex-col justify-center text-right mr-10 w-full my-auto">
@@ -302,7 +312,7 @@ const QuantitySelector = ({
           </div>
         </div>
         <div
-          className={`flex relative w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all duration-200 px-1 py-2 ${
+          className={`flex h-36 py-4 relative w-full border-[1px] border-[#333] rounded-md cursor-pointer  hover:shadow-sm  hover:shadow-blue-500 transition-all duration-200 ${
             product.product === 3 ? "border-blue-500 bg-amber-100" : "bg-white"
           }`}
           onClick={() =>
@@ -316,29 +326,32 @@ const QuantitySelector = ({
             )
           }
         >
-          <div className="absolute top-[10px] left-[15px] font-bold text-[14px] align-bottom my-auto">
-            <input type='checkbox' checked={product.product === 3} className='mr-2 align-middle' />
-            Buy 4x
-          </div>
-          <div className="flex w-1/3 sm:w-1/2 justify-center items-center ml-6 relative">
-          <div className='absolute right-1/4 top-1 text-center'>
-              <Image
-                src={SaveSeal}
-                width={30}
-                height={30}
-                alt='60% off'
-                className="object-scale-down w-1/3 max-w-[70px] sm:w-auto"
-              />
-              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[0.6rem] font-bold text-white">
-                60%
-              </p>
+        <div className='flex flex-col w-1/2'>
+            <div className="-mt-2 ml-3 font-bold text-[14px] align-bottom">
+              <input type='checkbox' checked={product.product === 3} className='mr-2 align-middle' />
+              Buy 4x
             </div>
-            <Image
-              src={info.product.image4}
-              width={120}
-              height={120}
-              alt="Quantity 1"
-            />
+            <div className="flex w-fit h-full justify-center sm:justify-start items-center ml-6 relative">
+              <div className='absolute top-0 text-center w-32'>
+                <Image
+                  src={SaveSeal}
+                  width={60}
+                  height={60}
+                  alt='60% off'
+                  className="object-scale-down w-1/3 max-w-32 float-right"
+                />
+                <p className="absolute text-[0.7rem] w-1/3 font-bold text-white float-right right-0 top-1/2 translate-y-[-50%] leading-[0.7rem]">
+                  60%<br/>
+                  OFF
+                </p>
+              </div>
+              <Image
+                src={info.product.image4}
+                width={120}
+                height={120}
+                alt="Quantity 1"
+              />
+            </div>
           </div>
           <div className="flex w-2/3 sm:w-1/2 flex-col justify-start items-center text-[#282828] text-center">
             <div className="flex flex-col justify-center text-right mr-10 w-full my-auto">
